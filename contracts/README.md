@@ -1,26 +1,11 @@
-# Mina zkApp: Contracts
+# 去中心化学术验证系统demo合约部分
 
-This template uses TypeScript.
+## 1. 运行typescript测试脚本
+```bash
+npm run academic-validation
+``` 
 
-## How to build
-
-```sh
-npm run build
+## 2. 运行jest框架测试脚本
+```bash
+npm run test(w)
 ```
-
-## How to run tests
-
-```sh
-npm run test
-npm run testw # watch mode
-```
-
-## How to run coverage
-
-```sh
-npm run coverage
-```
-
-## License
-
-[Apache-2.0](LICENSE)
