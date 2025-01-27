@@ -1,7 +1,7 @@
 import { AcademicValidation } from './AcademicValidation';
 import { AccountUpdate, Mina, PrivateKey, PublicKey, UInt32 } from 'o1js';
 
-describe("AcademicValidation Contract", () => {
+describe.only("AcademicValidation Contract", () => {
     const useProof = false;
 
     let deployerAccount: Mina.TestPublicKey;
