@@ -42,8 +42,9 @@ export class AcademicValidation extends SmartContract {
         const currentTotalScore = await this.totalScore.getAndRequireEquals();
         const currentScoreCount = await this.scoreCount.getAndRequireEquals();
 
-        // 确保评分次数大于零
+        // 确保评分次数大于零但小于等于10
         currentScoreCount.assertGreaterThan(UInt32.from(0));
+        currentScoreCount.assertLessThanOrEqual(UInt32.from(10));
 
         // 计算平均值，直接为整数，不需要任何放大
         const average = currentTotalScore.div(currentScoreCount);
