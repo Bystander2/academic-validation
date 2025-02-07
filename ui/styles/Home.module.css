@@ -20,11 +20,11 @@
 }
 
 .background::before {
-  background: url('/assets/hash-pattern.png');
+  background: url("/assets/hash-pattern.png");
   z-index: 1;
   -webkit-mask-image: linear-gradient(20deg, #000 25%, transparent);
   mask-image: linear-gradient(20deg, #000 25%, transparent);
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -68,7 +68,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: repeat(2, minmax(50vh, auto));
   width: var(--max-width);
   max-width: 100%;
   margin-bottom: 3rem;
@@ -77,10 +77,10 @@
 
 .state button {
   display: block;
-  margin: .5rem auto 1rem;
+  margin: 0.5rem auto 1rem;
   background-color: rgb(255, 255, 255);
   border: 1px solid #2d2d2d;
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
   cursor: pointer;
 }
 .state button:hover {
@@ -93,9 +93,14 @@
   margin: 1rem;
   background-color: rgb(255, 255, 255);
   border: 1px solid #2d2d2d;
-  width: 14rem;
-  height: 6rem;
+  width: 25rem;
+  height: 10rem;
   text-align: center;
+  word-break: break-all;
+}
+
+.state input {
+  border-bottom: 1px solid #000;
 }
 
 .state .error {
@@ -116,11 +121,11 @@
   border-radius: 4px 1px;
   transform-style: preserve-3d;
   transition: background 200ms, border 200ms;
-  width: 14rem;
+  width: 25rem;
 }
 
 .card:after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0.4rem -0.4rem -0.4rem 0.4rem;
   border-radius: 4px 1px;
@@ -139,6 +144,7 @@
 .card h2 {
   display: flex;
   font-weight: 600;
+  word-break: break-all;
   margin-bottom: 0.7rem;
   justify-content: space-between;
   letter-spacing: 0.13rem;
@@ -175,32 +181,35 @@
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  .card:hover {
+  .card:hover,
+  .active {
     color: #ffff;
     background: linear-gradient(
         0deg,
         rgba(45, 45, 45, 0.66),
         rgba(45, 45, 45, 0.66)
       ),
-      url('/assets/button-hover-light.png');
+      url("/assets/button-hover-light.png");
     border: 1px solid #2d2d2d;
     background-size: 100% 100%;
     transform: translateZ(-1px);
   }
 
-  .card:hover:after {
+  .card:hover:after,
+  .active:after {
     border: 0px solid rgba(0, 0, 0, 0);
     transform: translate(-0.4rem, -0.4rem);
     transition: transform 200ms ease-in 0ms, border 50ms ease-in 100ms;
   }
 
-  .card:hover img {
+  /* .card:hover img {
     filter: brightness(0) invert(1);
-  }
+  } */
 }
 
 @media (prefers-reduced-motion) {
-  .card:hover span {
+  .card:hover span,
+  .active {
     transform: none;
   }
 }
@@ -213,8 +222,8 @@
 
   .grid {
     grid-template-columns: 1fr;
-    max-width: 320px;
-    grid-template-rows: repeat(4, minmax(25%, auto));
+    max-width: 100%;
+    grid-template-rows: repeat(2, minmax(50vh, auto));
   }
 
   .start {
